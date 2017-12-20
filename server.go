@@ -1,10 +1,10 @@
 package main
 
 import (
-  "fmt"
+  //"fmt"
   "net/http"
-	"log"
-	"os"
+	//"log"
+	//"os"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
