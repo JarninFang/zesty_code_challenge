@@ -4,7 +4,7 @@ import (
   "fmt"
   "net/http"
   "os"
-  //"encoding/json"
+  "encoding/json"
   "github.com/gorilla/mux"
 )
 
@@ -24,14 +24,14 @@ func handler(w http.ResponseWriter, r *http.Request) {
     w.Header().Set("Access-Control-Allow-Headers",
     "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
   }
-  //m := map[string]string{
-  //  "email": "jarninfang@gmail.com",
-  //  "website": "jarninfang.github.io",
-  //}
+  m := map[string]string{
+    "email": "jarninfang@gmail.com",
+    "website": "jarninfang.github.io",
+  }
   fmt.Fprintln(w, "Hello World")
-  //w.Header().Add("Content-Type", "application/json")
+  w.Header().Add("Content-Type", "application/json")
   w.WriteHeader(http.StatusCreated)
-  //_ = json.NewEncoder(w).Encode(m)
+  _ = json.NewEncoder(w).Encode(m)
 }
 
 func main() {
