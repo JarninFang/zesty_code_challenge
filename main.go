@@ -5,6 +5,7 @@ import (
   "net/http"
   "os"
   //"encoding/json"
+  "github.com/gorilla/mux"
 )
 
 func determineListenAddress() (string, error) {
@@ -28,13 +29,14 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+  router := mux.NewRouter().StrictSlash(true)
   addr, err := determineListenAddress()
   if err != nil {
     log.Fatal(err)
   }
-  http.HandleFunc("/", handler)
+  router.HandleFunc("/", handler)
   log.Printf("Listening on %s...\n", addr)
-  if err := http.ListenAndServe(addr, nil); err != nil {
+  if err := http.ListenAndServe(addr, router); err != nil {
     panic(err)
   }
 }
