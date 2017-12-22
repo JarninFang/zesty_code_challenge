@@ -4,7 +4,7 @@ import (
   "fmt"
   "net/http"
   "os"
-  "encoding/json"
+  //"encoding/json"
 )
 
 func determineListenAddress() (string, error) {
@@ -17,15 +17,14 @@ func determineListenAddress() (string, error) {
 
 func handler(w http.ResponseWriter, r *http.Request) {
   w.Header().Set("Access-Control-Allow-Origin", "*")
-  //fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
-  m := map[string]string{
-    "email": "jarninfang@gmail.com",
-    "website": "jarninfang.github.io",
-  }
+  //m := map[string]string{
+  //  "email": "jarninfang@gmail.com",
+  //  "website": "jarninfang.github.io",
+  //}
   fmt.Fprintln(w, "Hello World")
-  w.Header().Add("Content-Type", "application/json")
+  //w.Header().Add("Content-Type", "application/json")
   w.WriteHeader(http.StatusCreated)
-  _ = json.NewEncoder(w).Encode(m)
+  //_ = json.NewEncoder(w).Encode(m)
 }
 
 func main() {
