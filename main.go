@@ -17,6 +17,10 @@ func determineListenAddress() (string, error) {
 
 func handler(w http.ResponseWriter, r *http.Request) {
   //fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+  m := map[string]string{
+    "email": "jarninfang@gmail.com",
+    "website": "jarninfang.github.io",
+  }
   fmt.Fprintln(w, "Hello World")
   w.Header().Add("Content-Type", "application/json")
   w.WriteHeader(http.StatusCreated)
