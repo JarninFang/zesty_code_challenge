@@ -28,7 +28,7 @@ func determineListenAddress() (string, error) {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-  w.Header().Add("Content-Type", "application/json; charset=utf-8")
+  w.Header().Set("Content-Type", "application/json; charset=utf-8")
   w.Header().Set("Access-Control-Allow-Origin", "*")
   if origin := r.Header.Get("Origin"); origin != "" {
     w.Header().Set("Access-Control-Allow-Origin", origin)
