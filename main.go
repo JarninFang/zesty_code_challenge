@@ -28,11 +28,11 @@ func determineListenAddress() (string, error) {
       w.Header().Set("Access-Control-Allow-Headers",
       "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
     }
-    m := map[string]string{
+    /*m := map[string]string{
       "email": "jarninfang@gmail.com",
       "website": "jarninfang.github.io",
       "github_repo_link" : "https://jarninfang.github.io",
-    }
+    }*/
 
     name := Name{}
     name.First = "Jarnin"
@@ -40,7 +40,7 @@ func determineListenAddress() (string, error) {
     nameJson,_ := json.Marshal(name)
     w.Write(nameJson)
 
-    _ = json.NewEncoder(w).Encode(m)
+    //_ = json.NewEncoder(w).Encode(m)
 
     w.WriteHeader(http.StatusCreated)
   }
