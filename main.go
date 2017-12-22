@@ -17,7 +17,9 @@ func determineListenAddress() (string, error) {
 func handler(w http.ResponseWriter, r *http.Request) {
   //fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
   fmt.Fprintln(w, "Hello World")
+  w.Header().Add("Content-Type", "application/json")
   w.WriteHeader(http.StatusCreated)
+  _ = json.NewEncoder(w).Encode(m)
   w.Header().Set("Access-Control-Allow-Origin", "*")
 }
 
