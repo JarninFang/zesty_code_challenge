@@ -47,8 +47,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
   answer.github_repo_link = "https://google.com"
   answer.name = name
   answerJson,_ := json.Marshal(answer)
-  w.WriteHeader(http.StatusCreated)
   w.Write(answerJson)
+  w.WriteHeader(http.StatusCreated)
 }
 
 func main() {
