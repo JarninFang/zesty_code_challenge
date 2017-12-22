@@ -35,6 +35,7 @@ func main() {
     log.Fatal(err)
   }
   router.HandleFunc("/", handler)
+  router.HandleFunc("/code/challenge", handler)
   log.Printf("Listening on %s...\n", addr)
   if err := http.ListenAndServe(addr, router); err != nil {
     panic(err)
