@@ -16,6 +16,7 @@ func determineListenAddress() (string, error) {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
+  w.Header().Set("Access-Control-Allow-Origin", "*")
   //fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
   m := map[string]string{
     "email": "jarninfang@gmail.com",
@@ -25,7 +26,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
   w.Header().Add("Content-Type", "application/json")
   w.WriteHeader(http.StatusCreated)
   _ = json.NewEncoder(w).Encode(m)
-  w.Header().Set("Access-Control-Allow-Origin", "*")
 }
 
 func main() {
