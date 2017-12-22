@@ -33,13 +33,15 @@ func determineListenAddress() (string, error) {
       "website": "jarninfang.github.io",
       "github_repo_link" : "https://jarninfang.github.io",
     }
-    _ = json.NewEncoder(w).Encode(m)
 
     name := Name{}
     name.First = "Jarnin"
     name.Last = "Fang"
     nameJson,_ := json.Marshal(name)
     w.Write(nameJson)
+
+    _ = json.NewEncoder(w).Encode(m)
+
     w.WriteHeader(http.StatusCreated)
   }
 
