@@ -8,15 +8,15 @@ import (
 )
 
 type Name struct {
-  First string
-  Last string
+  first string
+  last string
 }
 
 type Answer struct {
-  Email string
-  NameVar Name
-  Website string
-  Github_repo_link string
+  email string
+  name Name
+  website string
+  github_repo_link string
 }
 
 func determineListenAddress() (string, error) {
@@ -36,27 +36,19 @@ func handler(w http.ResponseWriter, r *http.Request) {
     w.Header().Set("Access-Control-Allow-Headers",
     "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
   }
-  /*m := map[string]string{
-    "email": "jarninfang@gmail.com",
-    "website": "jarninfang.github.io",
-    "github_repo_link" : "https://jarninfang.github.io",
-  }*/
 
   name := Name{}
-  name.First = "Jarnin"
-  name.Last = "Fang"
+  name.first = "Jarnin"
+  name.last = "Fang"
 
   answer := Answer{}
-  answer.Email = "jarninfang@gmail.com"
-  answer.Website = "https://jarninfang.github.io"
-  answer.Github_repo_link = "https://google.com"
-  answer.NameVar = name
+  answer.email = "jarninfang@gmail.com"
+  answer.website = "https://jarninfang.github.io"
+  answer.github_repo_link = "https://google.com"
+  answer.name = name
   answerJson,_ := json.Marshal(answer)
-  w.Write(answerJson)
-
-  //_ = json.NewEncoder(w).Encode(m)
-
   w.WriteHeader(http.StatusCreated)
+  w.Write(answerJson)
 }
 
 func main() {
