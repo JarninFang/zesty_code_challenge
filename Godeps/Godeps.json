@@ -2,8 +2,11 @@
 	"ImportPath": "github.com/heroku/zesty_coding_challenge",
 	"GoVersion": "go1.9",
 	"GodepVersion": "v79",
-	"Packages": [
-		"./..."
-	],
-	"Deps": []
+	"Deps": [
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Comment": "v1.6.0-6-g5ab525f",
+			"Rev": "5ab525f4fb1678e197ae59401e9050fa0b6cb5fd"
+		}
+	]
 }
