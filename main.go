@@ -9,8 +9,7 @@ import (
 )
 
 func determineListenAddress() (string, error) {
-  port := os.Getenv("PORT")
-  if port == "" {
+  port := os.Getenv("PORT") if port == "" {
     return "", fmt.Errorf("$PORT not set")
   }
   return ":" + port, nil
@@ -40,8 +39,7 @@ func main() {
   if err != nil {
     log.Fatal(err)
   }
-  router.HandleFunc("/", handler)
-  router.HandleFunc("/code/challenge/", handler)
+  router.PathPrefix("/").Handler(handler)
   http.Handle("/", router)
   log.Printf("Listening on %s...\n", addr)
   if err := http.ListenAndServe(addr, router); err != nil {
