@@ -1,7 +1,6 @@
 package main
 import ( "log"
-  "fmt"
-  "net/http"
+  "fmt" "net/http"
   "os"
   "encoding/json"
 )
@@ -45,7 +44,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
   answer.website = "https://jarninfang.github.io"
   answer.github_repo_link = "https://google.com"
   answer.name = name
-  answerJson,_ := json.Marshal(answer)
+  //answerJson,_ := json.Marshal(answer)
   w.WriteHeader(http.StatusCreated)
   json.NewEncoder(w).Encode(answer)
   //w.Write(answerJson)
