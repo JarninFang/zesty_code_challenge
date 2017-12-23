@@ -1,6 +1,5 @@
 package main
-import (
-  "log"
+import ( "log"
   "fmt"
   "net/http"
   "os"
@@ -47,8 +46,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
   answer.github_repo_link = "https://google.com"
   answer.name = name
   answerJson,_ := json.Marshal(answer)
-  w.Write(answerJson)
   w.WriteHeader(http.StatusCreated)
+  json.NewEncoder(w).Encode(answer)
+  //w.Write(answerJson)
 }
 
 func main() {
