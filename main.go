@@ -13,10 +13,10 @@ type Name struct {
 }
 
 type Answer struct {
-  email string
-  name Name
-  website string
-  github_repo_link string
+  Email string
+  Name Name
+  Website string
+  Github_repo_link string
 }
 
 func determineListenAddress() (string, error) {
@@ -42,10 +42,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
   name.last = "Fang"
 
   answer := Answer{}
-  answer.email = "jarninfang@gmail.com"
-  answer.website = "https://jarninfang.github.io"
-  answer.github_repo_link = "https://google.com"
-  answer.name = name
+  answer.Email = "jarninfang@gmail.com"
+  answer.Website = "https://jarninfang.github.io"
+  answer.Github_repo_link = "https://google.com"
+  answer.Name = name
   //answerJson,_ := json.Marshal(answer)
   w.WriteHeader(http.StatusCreated)
   json.NewEncoder(w).Encode(answer)
