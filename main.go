@@ -28,7 +28,7 @@ func determineListenAddress() (string, error) {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-  w.Header().Set("Content-Type", "application/json")
+  w.Header().Set("Content-Type", "application/json; charset=utf-8")
   w.Header().Set("Access-Control-Allow-Origin", "*")
   if origin := r.Header.Get("Origin"); origin != "" {
     w.Header().Set("Access-Control-Allow-Origin", origin)
@@ -47,9 +47,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
   answer.github_repo_link = "https://google.com"
   answer.name = name
   answerJson,_ := json.Marshal(answer)
-  fmt.Println(answerJson)
-  w.WriteHeader(http.StatusCreated)
   w.Write(answerJson)
+  w.WriteHeader(http.StatusCreated)
 }
 
 func main() {
