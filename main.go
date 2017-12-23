@@ -8,15 +8,15 @@ import (
 )
 
 type Name struct {
-  first string
-  last string
+  First string `json:"first"`
+  Last string  `json:"last"`
 }
 
 type Answer struct {
-  Email string
-  Name Name
-  Website string
-  Github_repo_link string
+  Email string              `json:"email"`
+  Name Name                 `json:"name"`
+  Website string            `json:"website"`
+  Github_repo_link string   `json:"github_repo_link"`
 }
 
 func determineListenAddress() (string, error) {
@@ -38,8 +38,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
   }
 
   name := Name{}
-  name.first = "Jarnin"
-  name.last = "Fang"
+  name.First = "Jarnin"
+  name.Last = "Fang"
 
   answer := Answer{}
   answer.Email = "jarninfang@gmail.com"
